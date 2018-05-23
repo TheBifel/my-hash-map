@@ -101,14 +101,10 @@ public class HashMap {
 
         for (int i = 0; i < capacity; i++) {
             if (keys[i] != NULL_INTEGER) {
-                int index = newIndexFor(keys[i], newCapacity);
-                while (newKeys[index] != NULL_INTEGER) {
-                    if (newKeys[index] == keys[i]) {
-                        break;
-                    } else {
-                        index++;
-                    }
-                }
+                int index;
+                //noinspection StatementWithEmptyBody
+                for (index = newIndexFor(keys[i], newCapacity); newKeys[index] != NULL_INTEGER; index++);
+
                 newKeys[index] = keys[i];
                 newValues[index] = values[i];
             }
