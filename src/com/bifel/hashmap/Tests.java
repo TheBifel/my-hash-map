@@ -1,3 +1,5 @@
+package com.bifel.hashmap;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,20 +9,20 @@ public class Tests {
     @Test
     public void testOfPutting() {
         HashMap hashMap = new HashMap();
-        hashMap.put(21, 10);
-        hashMap.put(25, 11);
-        hashMap.put(26, 12);
-        hashMap.put(27, 13);
-        assertEquals(10, hashMap.get(21));
-        assertEquals(11, hashMap.get(25));
-        assertEquals(12, hashMap.get(26));
-        assertEquals(13, hashMap.get(27));
+        hashMap.put(15, 10);
+        hashMap.put(16, 11);
+        hashMap.put(21, 12);
+        hashMap.put(30, 13);
+        assertEquals(10, hashMap.get(15));
+        assertEquals(11, hashMap.get(16));
+        assertEquals(12, hashMap.get(21));
+        assertEquals(13, hashMap.get(30));
         assertEquals(HashMap.NULL_LONG, hashMap.get(1));
     }
 
     @Test
     public void testOfKeyDuplication() {
-        HashMap hashMap = new HashMap(5);
+        HashMap hashMap = new HashMap(32);
         hashMap.put(1, 512);
         hashMap.put(2, 513);
         hashMap.put(3, 514);
@@ -34,7 +36,7 @@ public class Tests {
 
     @Test
     public void testOfHighLoad() {
-        HashMap hashMap = new HashMap(6, 0.5f);
+        HashMap hashMap = new HashMap(64, 0.5f);
         for (int i = 0; i < 1000; i++) {
             hashMap.put(i, i * 2);
         }
