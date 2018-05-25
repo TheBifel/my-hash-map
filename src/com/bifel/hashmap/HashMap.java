@@ -77,7 +77,7 @@ public class HashMap {
                 values[index] = value;
                 return;
             }
-            index = index != capacity ? index + 1 : 0;// cycle if overload
+            index = (index + 1) & (capacity - 1); // cycle if overload
         }
         keys[index] = key;
         values[index] = value;
